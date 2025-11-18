@@ -39,6 +39,7 @@ LICENÇA:
 import maya.cmds as cmds
 
 def criar_controles_e_posicionar(raio=10, cor=13, rotacao=(0, 90, 0)):
+    
     """
     Cria um controle NURBS circular posicionado em um joint selecionado.
 
@@ -75,6 +76,7 @@ def criar_controles_e_posicionar(raio=10, cor=13, rotacao=(0, 90, 0)):
         18 = Ciano
     """
 
+   
     selected = cmds.ls(selection=True)
 
     if selected:
@@ -97,7 +99,7 @@ def criar_controles_e_posicionar(raio=10, cor=13, rotacao=(0, 90, 0)):
     else:
         print("Nenhum joint selecionado. Selecione um joint primeiro")
 
-"""
+
 ----------------------------------------------------------------------------------------------------------------
 v1.1.0 (18/11/2025) - CONECTAR CONTROLE AO JOINT
 ----------------------------------------------------------------------------------------------------------------
