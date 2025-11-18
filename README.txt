@@ -103,6 +103,7 @@ criar_controles_e_posicionar(raio=20, cor=17, rotacao=(0, 0, 0))
 criar_controles_e_posicionar(raio=12, cor=14, rotacao=(90, 0, 0))
 ```
 
+
 ---
 
 ## 📸 Exemplos
@@ -136,6 +137,19 @@ criar_controles_e_posicionar(raio=8, cor=13)
 
 criar_controles_e_posicionar(raio=3, cor=6, rotacao=(0, 0, 90))
 ```
+
+## 📸 Galeria
+
+### Controles criados automaticamente
+![Exemplo 1] (screenshots)
+
+### Controles tamanhos e cores]
+![Exemplo 2] (screenshots)
+
+### Código em ação
+![Exemplo 3] (screenshots)
+
+
 
 ---
 
@@ -248,5 +262,6 @@ copies of the Software...
 **Feito com ❤️ e ☕ por Pedro Leal**
 
 [⬆ Voltar ao topo](#-rigging-tools---maya-python-automation)
+
 
 </div>
