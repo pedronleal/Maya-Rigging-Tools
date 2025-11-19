@@ -15,7 +15,7 @@ DATA DE CRIAÇÃO:
     17/11/2025
 
 VERSÃO:
-    1.0.0
+    1.2.0
 
 DEPENDÊNCIAS:
     - Maya 2020+ (testado em Maya 2024)
@@ -39,6 +39,7 @@ LICENÇA:
 import maya.cmds as cmds
 
 def criar_controles_e_posicionar(raio=10, cor=13, rotacao=(0, 90, 0)):
+    
     """
     Cria um controle NURBS circular posicionado em um joint selecionado.
 
@@ -75,6 +76,7 @@ def criar_controles_e_posicionar(raio=10, cor=13, rotacao=(0, 90, 0)):
         18 = Ciano
     """
 
+   
     selected = cmds.ls(selection=True)
 
     if selected:
@@ -97,7 +99,7 @@ def criar_controles_e_posicionar(raio=10, cor=13, rotacao=(0, 90, 0)):
     else:
         print("Nenhum joint selecionado. Selecione um joint primeiro")
 
-"""
+
 ----------------------------------------------------------------------------------------------------------------
 v1.1.0 (18/11/2025) - CONECTAR CONTROLE AO JOINT
 ----------------------------------------------------------------------------------------------------------------
@@ -136,10 +138,64 @@ INTEGRAÇÃO:
     >>> criar_controles_e_posicionar()  # Cria shoulder_CTRL
     >>> cmds.select('shoulder_CTRL')
     >>> conectar_controle_ao_joint()    # Conecta ao joint
+----------------------------------------------------------------------------------------------------------------
+v1.2.0 (19/11/2025) - FREEZE TRANSFORMS
+----------------------------------------------------------------------------------------------------------------
+
+ATUALIZAÇÃO: Criar Controle com Freeze Transforms
+ARQUIVO: criar_controle.py (atualizado)
+
+DESCRIÇÃO:
+    Adicionada funcionalidade de freeze transforms automático aos controles criados.
+    Zera translação/rotação e normaliza escala para facilitar animação.
+
+NOVA FUNCIONALIDADE:
+    ✅ Parâmetro freeze=True (ativado por padrão)
+    ✅ Aplica cmds.makeIdentity() automaticamente
+    ✅ Zera Translate (X, Y, Z) para 0
+    ✅ Zera Rotate (X, Y, Z) para 0
+    ✅ Normaliza Scale (X, Y, Z) para 1
+
+USO:
+    # Com freeze (padrão):
+    >>> criar_controles_e_posicionar()
+    
+    # Sem freeze (opcional):
+    >>> criar_controles_e_posicionar(freeze=False)
+    
+    # Customizado:
+    >>> criar_controles_e_posicionar(raio=15, cor=6, freeze=True)
+
+BENEFÍCIOS:
+    ✅ Controles começam com valores zerados
+    ✅ Facilita reset de pose para animadores
+    ✅ Padrão da indústria de rigging
+    ✅ Evita transformações acumuladas
+
+EXEMPLO ANTES/DEPOIS:
+    ANTES do freeze:
+        TranslateX: 5.234
+        RotateY: 90.0
+        
+    DEPOIS do freeze:
+        TranslateX: 0.0  ← Zerado!
+        RotateY: 0.0     ← Zerado!
+
+INTEGRAÇÃO COM VERSÕES ANTERIORES:
+    >>> # Workflow completo v1.0.0 + v1.1.0 + v1.2.0:
+    >>> cmds.select('shoulder_JNT')
+    >>> criar_controles_e_posicionar()          # Cria E aplica freeze
+    >>> cmds.select('shoulder_CTRL')
+    >>> conectar_controle_ao_joint()            # Conecta ao joint
 
 ----------------------------------------------------------------------------------------------------------------
 CHANGELOG GERAL DO PROJETO:
 ----------------------------------------------------------------------------------------------------------------
+v1.2.0 (19/11/2025)
+    - Atualização: criar_controles_e_posicionar()
+    - Adicionado parâmetro freeze=True
+    - Aplica freeze transforms automático
+    - Controles criados já zerados
 
 v1.1.0 (18/11/2025)
     - Nova função: conectar_controle_ao_joint()
@@ -157,7 +213,7 @@ v1.0.0 (17/11/2025)
 PRÓXIMAS VERSÕES (ROADMAP):
 ----------------------------------------------------------------------------------------------------------------
 
-v1.2.0 (Planejado)
+v1.2.0 (Lançado)
     - Adicionar freeze transforms automático
     - Zerar translação/rotação/escala dos controles
 
