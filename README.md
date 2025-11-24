@@ -228,3 +228,110 @@ v2.0.0 (Planejado)
 
 ----------------------------------------------------------------------------------------------------------------
 """
+"""
+----------------------------------------------------------------------------------------------------------------
+v1.4.0 (20/11/2025) - INTERFACE GRÁFICA (UI)
+----------------------------------------------------------------------------------------------------------------
+
+NOVA FUNCIONALIDADE: Interface Gráfica Profissional
+ARQUIVO: Rigging_Tools_UI(v1.4.0) (novo)
+
+DESCRIÇÃO:
+    Interface gráfica completa para automação de rigging com controles interativos.
+    Permite configurar tamanho, cor e freeze transforms antes de criar controles.
+
+FUNCIONALIDADES DA UI:
+    ✅ Slider de tamanho (1-50)
+    ✅ Dropdown de cor (Vermelho, Azul, Amarelo, Verde)
+    ✅ Checkbox para freeze transforms
+    ✅ Botão "Criar Controles"
+    ✅ Botão "Conectar Controle ao Joint"
+    ✅ Botão "Fechar"
+
+USO:
+    >>> # Abrir a interface:
+    >>> abrir_rigging_tools()
+    
+    # 1. Configure tamanho, cor e freeze
+    # 2. Selecione um joint
+    # 3. Clique em "Criar Controles"
+    # 4. Selecione o controle criado
+    # 5. Clique em "Conectar Controle ao Joint"
+
+BENEFÍCIOS:
+    ✅ Não precisa editar código para mudar parâmetros
+    ✅ Interface visual intuitiva
+    ✅ Workflow mais rápido
+    ✅ Padrão da indústria
+    ✅ Fácil para artistas não-técnicos
+
+TECNOLOGIAS USADAS:
+    - maya.cmds.window() - Criação de janela
+    - maya.cmds.columnLayout() - Layout vertical
+    - maya.cmds.intSliderGrp() - Slider numérico
+    - maya.cmds.optionMenu() - Dropdown
+    - maya.cmds.checkBox() - Checkbox
+    - Dicionários Python para conversão de cores
+    - Lambda functions para callbacks
+
+EXEMPLO DE WORKFLOW COMPLETO:
+    >>> # Abrir UI
+    >>> abrir_rigging_tools()
+    
+    >>> # Na interface:
+    >>> # - Tamanho: 15
+    >>> # - Cor: Azul
+    >>> # - Freeze: Marcado
+    >>> 
+    >>> # Selecionar shoulder_JNT
+    >>> # Clicar "Criar Controles"
+    >>> # Resultado: shoulder_CTRL (tamanho 15, azul, zerado)
+    >>> 
+    >>> # Selecionar shoulder_CTRL
+    >>> # Clicar "Conectar Controle ao Joint"
+    >>> # Resultado: Controle conectado ao joint
+
+----------------------------------------------------------------------------------------------------------------
+CHANGELOG GERAL DO PROJETO:
+----------------------------------------------------------------------------------------------------------------
+
+v1.4.0 (20/11/2025)
+    - Nova funcionalidade: Interface Gráfica
+    - Arquivo: ui_rigging_tools.py
+    - Slider de tamanho interativo
+    - Dropdown de seleção de cor
+    - Checkbox para freeze transforms
+    - Botões funcionais integrados
+
+v1.3.0 (19/11/2025)
+    - Criação automática de grupo offset (GRP)
+    - Hierarquia: GRP -> CTRL -> JNT
+
+v1.2.0 (19/11/2025)
+    - Freeze transforms automático
+    - Parâmetro freeze=True
+
+v1.1.0 (18/11/2025)
+    - Conectar controle ao joint
+    - Parent Constraint automático
+
+v1.0.0 (17/11/2025)
+    - Versão inicial
+    - Criar controles NURBS
+
+----------------------------------------------------------------------------------------------------------------
+PRÓXIMAS VERSÕES (ROADMAP):
+----------------------------------------------------------------------------------------------------------------
+
+v1.5.0 (Planejado)
+    - Diferentes formas de controle (círculo, quadrado, cubo, seta)
+    - Dropdown para escolher forma
+
+v2.0.0 (Planejado)
+    - Batch processing (múltiplos joints de uma vez)
+    - Criar rig de membro completo (braço/perna)
+    - Histórico de ações (undo/redo)
+    - Preset de configurações
+
+----------------------------------------------------------------------------------------------------------------
+"""
